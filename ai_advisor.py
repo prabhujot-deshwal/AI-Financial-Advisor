@@ -1,39 +1,47 @@
-def get_ai_advice(prompt):
-    prompt = prompt.lower()
+def get_ai_advice(question):
 
-    if "save" in prompt:
-        return """
-💰 Tips to Save Money:
-1. Follow the 50/30/20 rule (needs, wants, savings).
-2. Track your monthly expenses.
-3. Avoid unnecessary subscriptions.
-4. Build an emergency fund.
-"""
+    question = question.lower()
 
-    elif "invest" in prompt:
+    if "investment" in question:
         return """
 📈 Investment Advice:
-1. Start SIP in mutual funds.
-2. Diversify your portfolio.
-3. Invest for long term (5–10 years).
-4. Avoid emotional investing.
+• Start SIP in mutual funds.
+• Diversify your portfolio.
+• Invest for the long term.
+• Avoid emotional investing.
 """
 
-    elif "debt" in prompt:
+    elif "save money" in question or "saving" in question:
         return """
-💳 Debt Management Tips:
-1. Pay high-interest debt first.
-2. Avoid unnecessary loans.
-3. Use credit cards responsibly.
+💰 Saving Tips:
+• Follow the 50/30/20 rule.
+• Track your monthly expenses.
+• Avoid unnecessary spending.
+• Build an emergency fund.
+"""
+
+    elif "debt" in question:
+        return """
+💳 Debt Advice:
+• Pay high-interest debt first.
+• Avoid unnecessary loans.
+• Use credit cards responsibly.
+"""
+
+    elif "budget" in question:
+        return """
+📊 Budgeting Advice:
+• Track income and expenses.
+• Set monthly financial goals.
+• Limit impulse purchases.
 """
 
     else:
         return """
-🤖 AI Financial Advisor
+🤖 General Financial Advice:
 
-General Financial Tips:
 • Save at least 20% of your income.
 • Invest consistently.
-• Diversify investments.
+• Diversify your investments.
 • Keep an emergency fund.
 """
