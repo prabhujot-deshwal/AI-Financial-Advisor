@@ -1,27 +1,18 @@
 from config import client
 
 def get_ai_advice(prompt):
+    try:
+        response = client.models.generate_content(
+            model="gemini-2.0-flash",
+            contents=prompt
+        )
+        return response.text
+    except Exception as e:
+        return f"Gemini Error: {e}"
 
-    if client:
-        try:
-            response = client.models.generate_content(
-                model="gemini-2.0-flash",
-                contents=prompt
-            )
-            return response.text
-        except:
-            pass
 
-    # Demo fallback response
-    return """
-    📊 Budget Advice:
-    - Maintain at least 20% savings rate.
-    - Reduce unnecessary expenses.
-    
-    💰 Investment Advice:
-    - Invest in SIPs with moderate risk.
-    - Diversify across equity and debt.
-    
-    🛡️ Debt Strategy:
-    - Pay high-interest loans first.
-    """
+# ---- TEST BLOCK ----
+if __name__ == "__main__":
+    print("Testing Gemini API...")
+    result = get_ai_advice("Give 3 tips to save money.")
+    print(result)
